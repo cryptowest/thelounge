@@ -9,6 +9,8 @@
  */
 
 (function() {
+	document.getElementById("loading-page-message").textContent = "Loading the app…";
+
 	var displayReload = function displayReload() {
 		var loadingReload = document.getElementById("loading-reload");
 		if (loadingReload) {
