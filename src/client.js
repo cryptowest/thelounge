@@ -10,6 +10,7 @@ const Network = require("./models/network");
 const ircFramework = require("irc-framework");
 const Helper = require("./helper");
 const UAParser = require("ua-parser-js");
+const MessageStorage = require("./plugins/sqlite");
 
 module.exports = Client;
 
@@ -78,8 +79,14 @@ function Client(manager, name, config = {}) {
 	});
 
 	const client = this;
-
 	let delay = 0;
+
+	client.messageStorage = new MessageStorage(client);
+
+	if (client.config.log && Helper.config.messageStorage === "sqlite") {
+		client.messageStorage.enable(client.name);
+	}
+
 	(client.config.networks || []).forEach((n) => {
 		setTimeout(function() {
 			client.connect(n);
@@ -276,6 +283,8 @@ Client.prototype.connect = function(args) {
 	network.irc.connect();
 
 	client.save();
+
+	channels.forEach((channel) => channel.loadMessages(client, network));
 };
 
 Client.prototype.generateToken = function(callback) {
