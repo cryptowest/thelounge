@@ -234,6 +234,17 @@ module.exports = {
 		tls: true,
 
 		//
+		// Enable certificate verification
+		//
+		// If true, the server certificate is verified against
+		// the list of supplied CAs by your node.js installation.
+		//
+		// @type     boolean
+		// @default  true
+		//
+		rejectUnauthorized: true,
+
+		//
 		// Nick
 		//
 		// @type     string

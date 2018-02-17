@@ -43,6 +43,12 @@
 					Enable TLS/SSL
 				</label>
 			</div>
+			<div class="col-sm-9 col-sm-offset-3">
+				<label class="tls">
+					<input type="checkbox" name="rejectUnauthorized" {{#if defaults.rejectUnauthorized}}checked{{/if}} {{#if lockNetwork}}disabled{{/if}}>
+					Reject unauthorized TLS certificates
+				</label>
+			</div>
 			<div class="clearfix"></div>
 		</div>
 		{{/if}}
