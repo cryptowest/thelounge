@@ -69,12 +69,12 @@ function Client(manager, name, config = {}) {
 		awayMessage: config.awayMessage || "",
 		lastActiveChannel: -1,
 		attachedClients: {},
-		config: config,
+		config,
 		id: id++,
-		name: name,
+		name,
 		networks: [],
 		sockets: manager.sockets,
-		manager: manager,
+		manager,
 	});
 
 	const client = this;
@@ -125,8 +125,8 @@ Client.prototype.find = function(channelId) {
 	}
 	if (network && chan) {
 		return {
-			network: network,
-			chan: chan,
+			network,
+			chan,
 		};
 	}
 
@@ -185,7 +185,7 @@ Client.prototype.connect = function(args) {
 		commands: args.commands,
 		ip: args.ip,
 		hostname: args.hostname,
-		channels: channels,
+		channels,
 	});
 	network.setNick(nick);
 
@@ -243,7 +243,7 @@ Client.prototype.connect = function(args) {
 		version: pkg.name + " " + Helper.getVersion() + " -- " + pkg.homepage,
 		host: network.host,
 		port: network.port,
-		nick: nick,
+		nick,
 		username: Helper.config.useHexIp ? Helper.ip2hex(args.ip) : network.username,
 		gecos: network.realname,
 		password: network.password,
@@ -255,7 +255,7 @@ Client.prototype.connect = function(args) {
 		auto_reconnect: true,
 		auto_reconnect_wait: 10000 + Math.floor(Math.random() * 1000), // If multiple users are connected to the same network, randomize their reconnections a little
 		auto_reconnect_max_retries: 360, // At least one hour (plus timeouts) worth of reconnections
-		webirc: webirc,
+		webirc,
 	});
 
 	network.irc.requestCap([
@@ -305,7 +305,7 @@ Client.prototype.updateSession = function(token, ip, request) {
 
 	client.config.sessions[token] = _.assign(client.config.sessions[token], {
 		lastUse: Date.now(),
-		ip: ip,
+		ip,
 		agent: friendlyAgent,
 	});
 
@@ -415,7 +415,7 @@ Client.prototype.more = function(data) {
 
 	return {
 		chan: chan.id,
-		messages: messages,
+		messages,
 	};
 };
 
@@ -530,7 +530,7 @@ Client.prototype.clientAttach = function(socketId, token) {
 	}
 
 	client.attachedClients[socketId] = {
-		token: token,
+		token,
 		openChannel: client.lastActiveChannel,
 	};
 

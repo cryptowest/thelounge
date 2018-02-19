@@ -86,9 +86,9 @@ const timeFormats = {
 };
 
 module.exports = {
-	colorCodeMap: colorCodeMap,
-	commands: commands,
-	condensedTypes: condensedTypes,
+	colorCodeMap,
+	commands,
+	condensedTypes,
 	condensedTypesQuery: "." + condensedTypes.join(", ."),
-	timeFormats: timeFormats,
+	timeFormats,
 };

@@ -7,7 +7,7 @@ const path = window.location.pathname + "socket.io/";
 
 const socket = io({
 	transports: $(document.body).data("transports"),
-	path: path,
+	path,
 	autoConnect: false,
 	reconnection: !$(document.body).hasClass("public"),
 });

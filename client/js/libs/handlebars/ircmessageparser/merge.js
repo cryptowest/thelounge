@@ -10,8 +10,8 @@ function assign(textPart, fragment) {
 	const end = Math.min(fragment.end, textPart.end);
 
 	return Object.assign({}, fragment, {
-		start: start,
-		end: end,
+		start,
+		end,
 		text: fragment.text.slice(start - fragStart, end - fragStart),
 	});
 }

@@ -33,7 +33,7 @@ module.exports = function(client, chan, msg) {
 		head: "",
 		body: "",
 		thumb: "",
-		link: link,
+		link,
 		shown: true,
 	})).slice(0, 5); // Only preview the first 5 URLs in message to avoid abuse
 
@@ -185,7 +185,7 @@ function emitPreview(client, msg, preview) {
 
 	client.emit("msg:preview", {
 		id: msg.id,
-		preview: preview,
+		preview,
 	});
 }
 
@@ -252,8 +252,8 @@ function fetch(uri, cb) {
 
 			cb({
 				data: Buffer.concat(buffers, length),
-				type: type,
-				size: size,
+				type,
+				size,
 			});
 		});
 }

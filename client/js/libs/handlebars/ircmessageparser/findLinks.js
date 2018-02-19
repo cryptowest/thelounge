@@ -53,8 +53,8 @@ function findLinks(text) {
 			}
 
 			result.push({
-				start: start,
-				end: end,
+				start,
+				end,
 				link: url,
 			});
 		});

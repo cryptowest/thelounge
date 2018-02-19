@@ -55,7 +55,7 @@ module.exports = function(irc, network) {
 
 		client.emit("msg", {
 			chan: chan.id,
-			msg: msg,
+			msg,
 		});
 	}
 };

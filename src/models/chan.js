@@ -45,7 +45,7 @@ Chan.prototype.destroy = function() {
 Chan.prototype.pushMessage = function(client, msg, increasesUnread) {
 	const obj = {
 		chan: this.id,
-		msg: msg,
+		msg,
 	};
 
 	// If this channel is open in any of the clients, do not increase unread counter
@@ -135,7 +135,7 @@ Chan.prototype.findUser = function(nick) {
 };
 
 Chan.prototype.getUser = function(nick) {
-	return this.findUser(nick) || new User({nick: nick});
+	return this.findUser(nick) || new User({nick});
 };
 
 Chan.prototype.setUser = function(user) {

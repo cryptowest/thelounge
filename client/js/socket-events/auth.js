@@ -67,8 +67,8 @@ socket.on("auth", function(data) {
 			$("#loading-page-message, #connection-error").text("Authorizing…");
 
 			socket.emit("auth", {
-				user: user,
-				token: token,
+				user,
+				token,
 				lastMessage: utils.lastMessageId,
 			});
 		}

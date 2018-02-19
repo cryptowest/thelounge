@@ -33,8 +33,8 @@ exports.input = function({irc}, chan, cmd, args) {
 
 	this.connect({
 		host: args[0],
-		port: port,
-		tls: tls,
+		port,
+		tls,
 	});
 
 	return true;
