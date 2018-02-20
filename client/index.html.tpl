@@ -49,7 +49,7 @@
 		<div id="main">
 			<div id="windows">
 				<div id="loading" class="window active">
-					<h1 id="loading-title">The Lounge</h1>
+					<img src="img/logo-vertical-transparent-bg.svg" alt="The Lounge">
 					<p id="loading-page-message"><a href="https://enable-javascript.com/" target="_blank" rel="noopener">Your JavaScript must be enabled.</a></p>
 					<p id="loading-slow">This is taking longer than it should, there might be connectivity issues.</p>
 					<button id="loading-reload" class="btn">Reload page</button>

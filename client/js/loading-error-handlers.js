@@ -36,9 +36,6 @@
 	});
 
 	window.g_LoungeErrorHandler = function LoungeErrorHandler(e) {
-		var title = document.getElementById("loading-title");
-		title.textContent = "An error has occured";
-
 		var message = document.getElementById("loading-page-message");
 		message.textContent = "An error has occured that prevented the client from loading correctly.";
 
